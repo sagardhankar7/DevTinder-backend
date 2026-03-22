@@ -2,6 +2,21 @@ const express = require("express")
 
 const app = express()
 
+app.get("/admin", function(req,res,next) {
+    const token = "xyz"
+    const isAdminAuthorized = token === "xyzsdjfh"
+    if(isAdminAuthorized) next() 
+    else res.send("Not authorized")
+})
+
+app.get("/admin/getAllData", function(req, res) {
+    res.send("All data is sent")
+})
+
+app.get("/admin/deleteUser", function(req, res) {
+    res.send("Deleted a user")
+})
+
 app.use("/",function(req,res) {
     res.send("Hello Hello Hello.")
 })
