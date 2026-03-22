@@ -6,7 +6,7 @@ app.get("/admin", function(req,res,next) {
     const token = "xyz"
     const isAdminAuthorized = token === "xyzsdjfh"
     if(isAdminAuthorized) next() 
-    else res.send("Not authorized")
+    else res.status(401).send("Not authorized")
 })
 
 app.get("/admin/getAllData", function(req, res) {
